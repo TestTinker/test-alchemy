@@ -1,0 +1,10 @@
+{
+  "gorest": {
+    "newUser": {
+      "namePrefix": "pw-user",
+      "emailDomain": "example.com",
+      "gender": "female",
+      "status": "active"
+    }
+  }
+}

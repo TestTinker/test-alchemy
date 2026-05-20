@@ -1,0 +1,46 @@
+{
+  "name": "playwrighttypescript",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript automation framework scaffold",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test tests/web",
+    "test:api": "playwright test tests/api",
+    "test:hybrid": "playwright test tests/hybrid",
+    "test:e2e": "playwright test tests/e2e",
+    "test:mobile:stable": "ts-node scripts/mobile-stable.ts",
+    "test:suite:login-create-user": "playwright test --config=playwright.login-create-user.config.ts",
+    "report:html": "playwright show-report playwright-report",
+    "report:allure:generate": "allure generate allure-results --clean -o allure-report",
+    "report:allure:open": "allure open allure-report",
+    "jira": "ts-node agents/export-jira-ticket.agent.ts",
+    "jira:ticket": "ts-node agents/export-jira-ticket.agent.ts ETI-150752",
+    "jira:ETI-150752": "ts-node agents/export-jira-ticket.agent.ts ETI-150752",
+    "jira:playwright": "ts-node agents/jira-to-playwright.agent.ts",
+    "seed": "ts-node scripts/seed-data.ts",
+    "cleanup": "ts-node scripts/cleanup.ts"
+  },
+  "keywords": [
+    "playwright",
+    "typescript",
+    "automation"
+  ],
+  "author": "Restiyanti",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@mobilewright/test": "0.0.30",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "latest",
+    "allure-commandline": "^2.38.1",
+    "allure-playwright": "^3.7.1",
+    "mobilewright": "0.0.30",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@mobilewright/test": "^0.0.30",
+    "mobilewright": "^0.0.30"
+  }
+}
