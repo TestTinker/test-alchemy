@@ -28,6 +28,10 @@ function generateUniquePhoneNumber(): string {
  * Attaches a screenshot to test info for debugging
  */
 async function attachStepScreenshot(screen: Screen, testInfo: TestInfo, name: string): Promise<void> {
+    if (process.env.MOBILE_DEBUG_SCREENSHOTS !== '1') {
+        return;
+    }
+
     await testInfo.attach(name, {
         body: await screen.screenshot(),
         contentType: 'image/png',
@@ -103,11 +107,13 @@ test('QARDEX-3: Add a contact with random name and unique number', async ({ devi
 
         // First name field interactions
         await firstNameField.tap();
+        await firstNameField.fill(' ');
         await device.driver.pressButton('BACK'); // Dismiss any autofill suggestions
         await firstNameField.fill(firstName);
 
         // Last name field interactions
         await lastNameField.tap();
+        await lastNameField.fill(' ');
         await device.driver.pressButton('BACK'); // Dismiss any autofill suggestions
         await lastNameField.fill(lastName);
 
