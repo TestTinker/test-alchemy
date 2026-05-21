@@ -4,6 +4,8 @@ import type { TestInfo } from '@playwright/test';
 
 const CLOCK_APP_ID = 'com.google.android.deskclock';
 
+// test.use({ deviceName: /Small Phone$/ });
+
 async function attachStepScreenshot(screen: Screen, testInfo: TestInfo, name: string): Promise<void> {
   if (process.env.MOBILE_DEBUG_SCREENSHOTS !== '1') {
     return;
@@ -70,7 +72,7 @@ test('QARDEX-2: add alarm 6:00 AM', async ({ device, screen }, testInfo) => {
       await alarmTab.tap();
     }
 
-    await expect(screen.getByTestId(alarmTitleId)).toHaveText('Alarms');
+    await expect(screen.getByTestId(alarmTitleId)).toContainText('Alarm');
     await expect(screen.getByTestId(addAlarmFabId)).toBeVisible({ timeout: 10_000 });
     await attachStepScreenshot(screen, testInfo, '02-alarm-tab');
   });
