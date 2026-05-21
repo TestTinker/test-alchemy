@@ -9,7 +9,6 @@
     "test:api": "playwright test tests/api",
     "test:hybrid": "playwright test tests/hybrid",
     "test:e2e": "playwright test tests/e2e",
-    "test:mobile:stable": "ts-node scripts/mobile-stable.ts",
     "test:suite:login-create-user": "playwright test --config=playwright.login-create-user.config.ts",
     "report:html": "playwright show-report playwright-report",
     "report:allure:generate": "allure generate allure-results --clean -o allure-report",
