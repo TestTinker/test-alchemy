@@ -101,7 +101,14 @@ test('QARDEX-3: Add a contact with random name and unique number', async ({ devi
         // Split the contact name into first and last name
         const [firstName, lastName] = contactName.split(' ');
 
+        // First name field interactions
+        await firstNameField.tap();
+        await device.driver.pressButton('BACK'); // Dismiss any autofill suggestions
         await firstNameField.fill(firstName);
+
+        // Last name field interactions
+        await lastNameField.tap();
+        await device.driver.pressButton('BACK'); // Dismiss any autofill suggestions
         await lastNameField.fill(lastName);
 
         await attachStepScreenshot(screen, testInfo, '03-name-filled');
